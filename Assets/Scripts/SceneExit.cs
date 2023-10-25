@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneSwitcher : MonoBehaviour
+public class SceneExit : MonoBehaviour
 {
     public string destinyScene;
-
+    public string areaTransitionName;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +22,9 @@ public class SceneSwitcher : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.tag == "Player")
+        {
             SceneManager.LoadScene(destinyScene);
+            PlayerController.uniqueInstance.areaTransitionName = areaTransitionName;
+        }
     }
 }

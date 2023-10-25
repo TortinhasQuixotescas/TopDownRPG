@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController uniqueInstance;
     public Rigidbody2D playerRB;
     public int moveSpeed = 5;
     public Animator playerAnimator;
-    public static PlayerController uniqueInstance;
+    public string areaTransitionName;
     // Start is called before the first frame update
     void Start()
 
