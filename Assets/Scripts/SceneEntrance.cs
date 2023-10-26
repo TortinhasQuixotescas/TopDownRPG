@@ -10,13 +10,8 @@ public class SceneEntrance : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Debug.Log(PlayerController.uniqueInstance.areaTransitionName);
         if (transitionName == PlayerController.uniqueInstance.areaTransitionName)
-        {
-            Vector3 zAjust = transform.position;
-            zAjust.z = 0;
-            PlayerController.uniqueInstance.transform.position = zAjust;
-        }
+            PlayerController.uniqueInstance.transform.position = transform.position;
 
     }
 
