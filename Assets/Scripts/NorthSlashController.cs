@@ -23,6 +23,7 @@ public class NorthSlashController : MonoBehaviour
 
     void OnEnable()
     {
+        player = GameObject.FindWithTag("Player").GetComponent<Transform>();
         Vector2 aux = new Vector2(player.position.x, player.position.y + 0.1f);
         transform.position = aux;
         StartCoroutine(DelayExecution(0.30f));

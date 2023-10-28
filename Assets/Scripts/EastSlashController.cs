@@ -23,6 +23,7 @@ public class EastSlashController : MonoBehaviour
 
     void OnEnable()
     {
+        player = GameObject.FindWithTag("Player").GetComponent<Transform>();
         Vector2 aux = new Vector2(player.position.x + 0.1f, player.position.y);
         transform.position = aux;
         StartCoroutine(DelayExecution(0.30f));

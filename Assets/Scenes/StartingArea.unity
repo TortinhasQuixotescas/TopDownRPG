@@ -4673,7 +4673,7 @@ Transform:
   - {fileID: 603488124}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &2056981354
+--- !u!1001 &1611181515
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -4681,18 +4681,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1581364024282922535, guid: b80af33a4701014f3bd62824afa031c2, type: 3}
-      propertyPath: m_SortingLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1581364024282922535, guid: b80af33a4701014f3bd62824afa031c2, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1581364024282922535, guid: b80af33a4701014f3bd62824afa031c2, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -97011897
-      objectReference: {fileID: 0}
     - target: {fileID: 2026042528997988779, guid: b80af33a4701014f3bd62824afa031c2, type: 3}
       propertyPath: m_Name
       value: Player
@@ -4738,13 +4726,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8309833509717700231, guid: b80af33a4701014f3bd62824afa031c2, type: 3}
-      propertyPath: eastSlash
+      propertyPath: northSlash
       value: 
-      objectReference: {fileID: 1303205611028903222, guid: eacf0e6fc4f61c61bae375a8e23cc631, type: 3}
+      objectReference: {fileID: 8626926600967131729, guid: e6d1f5c45ff9d510b9b92380f53da1a4, type: 3}
     - target: {fileID: 8309833509717700231, guid: b80af33a4701014f3bd62824afa031c2, type: 3}
-      propertyPath: westSlash
+      propertyPath: southSlash
       value: 
-      objectReference: {fileID: 8905134111055214728, guid: 786ed16324e6ee72abfec1a208a8f5ab, type: 3}
+      objectReference: {fileID: 2587778237682850945, guid: 3fbaaa238db470e629560cb077e0dd25, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5111,6 +5099,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 260943367}
-  - {fileID: 2056981354}
+  - {fileID: 1611181515}
   - {fileID: 924775028}
   - {fileID: 1443111041}
