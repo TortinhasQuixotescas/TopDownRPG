@@ -22,9 +22,14 @@ public class NPCController : MonoBehaviour
     private float randomX = 0;
     private float randomY = 0;
 
+    public ObjectPool chickenMeatPool;
+    public GameObject chickenMeat;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        chickenMeatPool = new ObjectPool(chickenMeat, 1);
         HandleRandomMovement();
     }
 
@@ -113,4 +118,20 @@ public class NPCController : MonoBehaviour
         isChangingDirection = false;
         HandleRandomMovement();
     }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        GameObject chickenMeat = chickenMeatPool.GetFromPool();
+        if (chickenMeat != null)
+        {
+            Vector2 pos = transform.position;
+
+            chickenMeat.transform.position = pos;
+            chickenMeat.SetActive(true);
+        }
+        if (collider.CompareTag("Attack"))
+            gameObject.SetActive(false);
+    }
+
+
 }

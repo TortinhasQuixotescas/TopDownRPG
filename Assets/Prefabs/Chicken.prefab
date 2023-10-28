@@ -163,6 +163,7 @@ MonoBehaviour:
   maxTimeSameDirection: 3
   minTimeIdle: 1
   maxTimeIdle: 3
+  chickenMeat: {fileID: 9190075421753059304, guid: e043faf31b65eabf1bc94696d4a05c48, type: 3}
 --- !u!50 &7462571676880279789
 Rigidbody2D:
   serializedVersion: 4
