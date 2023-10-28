@@ -10,9 +10,10 @@ public class PlayerController : MonoBehaviour
     public Animator playerAnimator;
     public string areaTransitionName;
     public bool busy = false;
+    private bool isDelaying = false;
 
     private float lastXValue = 0;
-    private float lastYValue = 0;
+    private float lastYValue = -1;
     // Start is called before the first frame update
     void Start()
 
@@ -41,7 +42,7 @@ public class PlayerController : MonoBehaviour
                 playerAnimator.SetFloat("lastYValue", Input.GetAxisRaw("Vertical"));
             }
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !busy)
         {
             busy = true;
             if (lastXValue > 0)
@@ -52,6 +53,22 @@ public class PlayerController : MonoBehaviour
                 playerAnimator.SetTrigger("swordAttackNorth");
             else if (lastYValue < 0)
                 playerAnimator.SetTrigger("swordAttackSouth");
+            StartCoroutine(DelayExecution(0.30f)); // Atraso de 1 segundo
         }
+
+
+    }
+
+    private IEnumerator DelayExecution(float delayTime)
+    {
+        isDelaying = true;
+
+        yield return new WaitForSeconds(delayTime);
+
+        isDelaying = false;
+
+        // Agora você pode continuar com o restante do código após o atraso
+        busy = false;
+        playerAnimator.SetTrigger("notBusy");
     }
 }
