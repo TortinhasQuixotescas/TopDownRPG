@@ -405,7 +405,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: playerSlashingNorth
-  m_Speed: 1.2
+  m_Speed: 0.8
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 674511042204643145}
@@ -432,7 +432,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: playerSlashingSouth
-  m_Speed: 1.2
+  m_Speed: 0.8
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 9038088937088347311}
@@ -573,7 +573,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: playerSlashingEast
-  m_Speed: 1.2
+  m_Speed: 0.8
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 5018999667224937033}
@@ -641,7 +641,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: playerSlashingWest
-  m_Speed: 1.2
+  m_Speed: 0.8
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -3528334912329915122}

@@ -166,6 +166,11 @@ MonoBehaviour:
   moveSpeed: 5
   playerAnimator: {fileID: 5577472914405441808}
   areaTransitionName: 
+  busy: 0
+  eastSlash: {fileID: 8905134111055214728, guid: 786ed16324e6ee72abfec1a208a8f5ab, type: 3}
+  westSlash: {fileID: 7127767836357997255, guid: d45920caf342f8ce4898649ac3f8509a, type: 3}
+  northSlash: {fileID: 0}
+  southSlash: {fileID: 0}
 --- !u!95 &5577472914405441808
 Animator:
   serializedVersion: 5

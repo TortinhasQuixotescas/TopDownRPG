@@ -11,9 +11,16 @@ public class PlayerController : MonoBehaviour
     public string areaTransitionName;
     public bool busy = false;
     private bool isDelaying = false;
-
     private float lastXValue = 0;
     private float lastYValue = -1;
+    public ObjectPool eastSlashPool;
+    public GameObject eastSlash;
+    public ObjectPool westSlashPool;
+    public GameObject westSlash;
+    public ObjectPool northSlashPool;
+    public GameObject northSlash;
+    public ObjectPool southSlashPool;
+    public GameObject southSlash;
     // Start is called before the first frame update
     void Start()
 
@@ -24,6 +31,10 @@ public class PlayerController : MonoBehaviour
             Destroy(gameObject);
 
         DontDestroyOnLoad(gameObject);
+        eastSlashPool = new ObjectPool(eastSlash, 1);
+        westSlashPool = new ObjectPool(westSlash, 1);
+        northSlashPool = new ObjectPool(northSlash, 1);
+        southSlashPool = new ObjectPool(southSlash, 1);
     }
 
     // Update is called once per frame
@@ -41,19 +52,55 @@ public class PlayerController : MonoBehaviour
                 lastYValue = Input.GetAxisRaw("Vertical");
                 playerAnimator.SetFloat("lastYValue", Input.GetAxisRaw("Vertical"));
             }
-        }
-        if (Input.GetKeyDown(KeyCode.Space) && !busy)
-        {
-            busy = true;
-            if (lastXValue > 0)
-                playerAnimator.SetTrigger("swordAttackEast");
-            else if (lastXValue < 0)
-                playerAnimator.SetTrigger("swordAttackWest");
-            else if (lastYValue > 0)
-                playerAnimator.SetTrigger("swordAttackNorth");
-            else if (lastYValue < 0)
-                playerAnimator.SetTrigger("swordAttackSouth");
-            StartCoroutine(DelayExecution(0.30f)); // Atraso de 1 segundo
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                busy = true;
+                if (lastXValue > 0)
+                {
+                    playerAnimator.SetTrigger("swordAttackEast");
+                    GameObject eastSlash = eastSlashPool.GetFromPool();
+                    if (eastSlash != null)
+                    {
+                        Vector2 pos = transform.position;
+                        eastSlash.transform.position = pos;
+                        eastSlash.SetActive(true);
+                    }
+                }
+                else if (lastXValue < 0)
+                {
+                    playerAnimator.SetTrigger("swordAttackWest");
+                    GameObject westSlash = westSlashPool.GetFromPool();
+                    if (westSlash != null)
+                    {
+                        Vector2 pos = transform.position;
+                        westSlash.transform.position = pos;
+                        westSlash.SetActive(true);
+                    }
+                }
+                else if (lastYValue > 0)
+                {
+                    playerAnimator.SetTrigger("swordAttackNorth");
+                    GameObject northSlash = northSlashPool.GetFromPool();
+                    if (northSlash != null)
+                    {
+                        Vector2 pos = transform.position;
+                        northSlash.transform.position = pos;
+                        northSlash.SetActive(true);
+                    }
+                }
+                else if (lastYValue < 0)
+                {
+                    playerAnimator.SetTrigger("swordAttackSouth");
+                    GameObject southSlash = southSlashPool.GetFromPool();
+                    if (southSlash != null)
+                    {
+                        Vector2 pos = transform.position;
+                        southSlash.transform.position = pos;
+                        southSlash.SetActive(true);
+                    }
+                }
+                StartCoroutine(DelayExecution(0.30f));
+            }
         }
 
 
@@ -62,12 +109,8 @@ public class PlayerController : MonoBehaviour
     private IEnumerator DelayExecution(float delayTime)
     {
         isDelaying = true;
-
         yield return new WaitForSeconds(delayTime);
-
         isDelaying = false;
-
-        // Agora você pode continuar com o restante do código após o atraso
         busy = false;
         playerAnimator.SetTrigger("notBusy");
     }
