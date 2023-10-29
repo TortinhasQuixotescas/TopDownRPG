@@ -25,6 +25,9 @@ public class NPCController : MonoBehaviour
     public ObjectPool chickenMeatPool;
     public GameObject chickenMeat;
 
+    public bool isDead = false;
+
+    public AudioClip deathSound;
 
     // Start is called before the first frame update
     void Start()
@@ -121,16 +124,20 @@ public class NPCController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        GameObject chickenMeat = chickenMeatPool.GetFromPool();
-        if (chickenMeat != null)
-        {
-            Vector2 pos = transform.position;
-
-            chickenMeat.transform.position = pos;
-            chickenMeat.SetActive(true);
-        }
         if (collider.CompareTag("Attack"))
+        {
+            GameObject chickenMeat = chickenMeatPool.GetFromPool();
+            if (chickenMeat != null)
+            {
+                Vector2 pos = transform.position;
+
+                chickenMeat.transform.position = pos;
+                chickenMeat.SetActive(true);
+            }
+            AudioSource.PlayClipAtPoint(deathSound, transform.position);
             gameObject.SetActive(false);
+            isDead = true;
+        }
     }
 
 

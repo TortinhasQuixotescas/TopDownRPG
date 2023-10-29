@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     private bool isDelaying = false;
     private float lastXValue = 0;
     private float lastYValue = -1;
+    public int chickenMeatAmout = 0;
 
     public static PlayerController uniqueInstance;
 
@@ -124,5 +125,11 @@ public class PlayerController : MonoBehaviour
         isDelaying = false;
         busy = false;
         playerAnimator.SetTrigger("notBusy");
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.CompareTag("ChickenMeat"))
+            ++chickenMeatAmout;
     }
 }
